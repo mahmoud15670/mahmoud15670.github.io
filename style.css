@@ -119,7 +119,7 @@ section {
 .card {
     background-color: #107b7e;
     width: 21.25em;
-    box-shadow: 0 5px 25px rgba(1 1 1/ 15);
+    /* box-shadow: 0 5px 25px rgba(1 1 1/ 15); */
     border-radius: 10px;
     padding: 25px;
     margin: 30px;
@@ -143,11 +143,11 @@ section {
 }
 
 #projects {
-    background-color: #0A4F51;
+    background-color: #0d8084;
 }
 
 #projects .card{
-    background-color: #be9e44;
+    background-color: #192c54;
     border: 4px solid #d8c690;
 }
 
@@ -155,6 +155,26 @@ section {
     color: #e5d9b6;
 }
 
+#certificates {
+    background-color: #192c54;
+    color: #28e3da;
+}
+
+#certificates .card:hover {
+    transform: scale(1.1);
+}
+
 #certificates .card img {
     width: 100%;
+}
+
+#contct {
+    background-color: #19BFB7;
+    color: #293533;
+}
+
+footer {
+    background-color: #192c54;
+    color: #baf0e6;
+    height: 100px;
 }
