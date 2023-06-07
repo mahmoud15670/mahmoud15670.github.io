@@ -56,7 +56,8 @@ section {
     width: 100%;
     min-height: 100vh;
     /* background-color: #192c54; */
-    background-image: url(./IMG.jpg);
+    background-image: url(./IMG.jpg) no-repeat;
+    background-size: cover;
     color: #28e3da;
 }
 
