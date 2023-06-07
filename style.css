@@ -55,7 +55,8 @@ section {
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    background-color: #192c54;
+    /* background-color: #192c54; */
+
     color: #28e3da;
 }
 
@@ -179,10 +180,15 @@ footer {
     justify-content: space-between;
     background-color: #192c54;
     color: #baf0e6;
+    padding: 10px;
     height: 100px;
 }
 footer a {
     text-decoration: none;
     color: #28e3da;
+    margin-left: 10px;
+}
+
+footer i {
     margin-left: 10px;
 }
