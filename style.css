@@ -85,7 +85,7 @@ section {
 
 .btn:hover {
     background-color: #CBB26A;
- }
+}
 .social {
     margin-top: 30px;
 }
@@ -153,4 +153,8 @@ section {
 
 #projects .title {
     color: #e5d9b6;
+}
+
+#certificates .card img {
+    width: 100%;
 }
