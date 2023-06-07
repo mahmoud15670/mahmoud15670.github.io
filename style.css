@@ -174,7 +174,15 @@ section {
 }
 
 footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #192c54;
     color: #baf0e6;
     height: 100px;
+}
+footer a {
+    text-decoration: none;
+    color: #28e3da;
+    margin-left: 10px;
 }
