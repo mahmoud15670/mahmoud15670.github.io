@@ -55,13 +55,15 @@ section {
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    background-color: #192c54;
-    color: #28e3da;
+    /* background-color: #192c54; */
+    background:fixed url(./mgh.jpg) no-repeat;
+    background-size: cover;
+    color: #e4f9f5;
 }
 
 .main span {
     display: inline-block;
-    color: #13928c;
+    color: #a03453;
     font-size: 2em;
     margin-top: 10px;
 }
@@ -76,7 +78,7 @@ section {
     margin-top: 30px;
     padding: 10px;
     border-radius: 10px;
-    background-color: #baf0e6;
+    background-color: #28e3da;
     text-decoration: none;
     color: #293533;
     font-size: 1.3em;
@@ -91,14 +93,18 @@ section {
 }
 
 .social a {
-    color: #e4f9f5;
+    color: #192c54;
     font-size: 1.5em;
     padding-left: 10px;
 }
 
 #services {
     background-color: #19BFB7;
-    color: #1a1a1a;
+    color: #e5d9b6;
+}
+
+#services .title{
+    color: #192c54;
 }
 
 .title {
@@ -126,9 +132,9 @@ section {
     text-align: center;
 }
 
-.card:hover{
+/* .card:hover{
     transform: skew(5deg, 5deg) scale(1.1);
-}
+} */
 
 .card-icon {
     font-size: 2.2em;
@@ -146,14 +152,25 @@ section {
     background-color: #0d8084;
 }
 
+#projects .title {
+    color: #192c54;
+}
+
 #projects .card{
     background-color: #192c54;
     border: 4px solid #d8c690;
+    color: #28e3da;
 }
 
-#projects .title {
-    color: #e5d9b6;
+#projects .card a{
+    text-decoration: none;
+    color: #baf0e6;
 }
+
+#projects .card img{
+    width: 100%;
+}
+
 
 #certificates {
     background-color: #192c54;
@@ -170,7 +187,7 @@ section {
 
 #contct {
     background-color: #19BFB7;
-    color: #293533;
+    color: #e5d9b6;
 }
 
 footer {
