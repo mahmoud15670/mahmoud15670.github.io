@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('nav a[href="#certificates"]').addEventListener('click', move_certificates);
     document.querySelector('nav a[href="#contct"]').addEventListener('click', move_contct);
     window.addEventListener('scroll', () => {
-        if (window.scrollY >== 600 || window.scrollY <== 640) {
+        if (window.scrollY ==> 600 || window.scrollY ==> 640) {
             move_services()
         }
         if (window.scrollY >== 1300 || window.scrollY <== 1340) {
