@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.scrollY >= 600 && window.scrollY <= 640) {
             move_services()
         }
-        if (window.scrollY >== 1300 || window.scrollY <== 1340) {
+        if (window.scrollY >= 1300 && window.scrollY <= 1340) {
             move_projects()
         }
-        if (window.scrollY >== 2300 || window.scrollY <== 2340) {
+        if (window.scrollY >= 2300 && window.scrollY <= 2340) {
             move_certificates()
         }
-        if (window.scrollY >== 2900 || window.scrollY <== 2940) {
+        if (window.scrollY >= 2900 && window.scrollY <= 2940) {
             move_contct()
         }
     });
