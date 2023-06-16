@@ -4,16 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('nav a[href="#certificates"]').addEventListener('click', move_certificates);
     document.querySelector('nav a[href="#contct"]').addEventListener('click', move_contct);
     window.addEventListener('scroll', () => {
-        if (window.scrollY >== 600 && window.scrollY <== 620) {
+        if (window.scrollY >== 600 || window.scrollY <== 640) {
             move_services()
         }
-        if (window.scrollY >== 1300 && window.scrollY <== 1320) {
+        if (window.scrollY >== 1300 || window.scrollY <== 1340) {
             move_projects()
         }
-        if (window.scrollY >== 2300 && window.scrollY <== 2320) {
+        if (window.scrollY >== 2300 || window.scrollY <== 2340) {
             move_certificates()
         }
-        if (window.scrollY >== 2900 && window.scrollY <== 2920) {
+        if (window.scrollY >== 2900 || window.scrollY <== 2940) {
             move_contct()
         }
     });
