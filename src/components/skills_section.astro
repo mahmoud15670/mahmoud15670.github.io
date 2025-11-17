@@ -7,7 +7,7 @@ const SkillImages = import.meta.glob('../assets/images/skills/*', {
 
 <div class="hero bg-neutral/70 min-h-screen flex flex-col justify-evenly" id="skills">
     <h3 class="text-3xl font-bold text-secondary">Skills</h3>
-    <div class="grid grid-cols-4 gap-6">
+    <div class="grid grid-cols-4 gap-4 md:gap-10 p-3 justify-evenly">
         {Object.values(SkillImages).map((img) => {
         const src = (img as any).default; 
         return <label class="swap swap-rotate hover:swap-active text-2xl font-bold object-center text-center">
