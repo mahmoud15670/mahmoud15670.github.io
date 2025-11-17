@@ -16,7 +16,7 @@ const eyadaImages = import.meta.glob('../assets/images/eyada/*', {
 
 <div class="hero bg-neutral/70 min-h-screen flex flex-col justify-evenly" id="my_work">
     <h3 class="text-3xl font-bold text-secondary">Projects</h3>
-    <div class="grid grid-cols-3 md:grid-cols-1 gap-5">
+    <div class="md:grid grid-cols-3 grid-cols-1 gap-5">
         <div class="card card-sm bg-base-200 max-w-60 rounded-lg shadow-lg" id="e_commerce">
             <figure class="hover-gallery max-h-30">
                 {Object.values(commerceImages).map((img) => {
