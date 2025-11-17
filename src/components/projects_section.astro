@@ -16,8 +16,8 @@ const eyadaImages = import.meta.glob('../assets/images/eyada/*', {
 
 <div class="hero bg-neutral/70 min-h-screen flex flex-col justify-evenly" id="my_work">
     <h3 class="text-3xl font-bold text-secondary">Projects</h3>
-    <div class="md:grid grid-cols-3 grid-cols-1 gap-5">
-        <div class="card card-sm bg-base-200 max-w-60 rounded-lg shadow-lg" id="e_commerce">
+    <div class="grid md:grid-cols-3 grid-cols-1 gap-5 p-3 justify-evenly">
+        <div class="card card-lg bg-base-200 rounded-lg shadow-lg" id="e_commerce">
             <figure class="hover-gallery max-h-30">
                 {Object.values(commerceImages).map((img) => {
                     const src = (img as any).default; 
@@ -34,7 +34,7 @@ const eyadaImages = import.meta.glob('../assets/images/eyada/*', {
                 </p>
             </div>
         </div>
-        <div class="card card-sm bg-base-200 max-w-60 rounded-lg shadow-lg" id="python">
+        <div class="card card-sm bg-base-200  rounded-lg shadow-lg" id="python">
             <figure class="hover-gallery max-h-30">
                 {Object.values(pythonImages).map((img) => {
                     const src = (img as any).default; 
@@ -51,7 +51,7 @@ const eyadaImages = import.meta.glob('../assets/images/eyada/*', {
                 </p>
             </div>
         </div>
-        <div class="card card-sm bg-base-200 max-w-60 shadow-lg" id="django">
+        <div class="card card-sm bg-base-200  shadow-lg" id="django">
             <figure class="hover-gallery max-h-30">
                 {Object.values(eyadaImages).map((img) => {
                     const src = (img as any).default; 
