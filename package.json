@@ -1,0 +1,24 @@
+{
+  "name": "portofolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-brands-svg-icons": "^7.1.0",
+    "@fortawesome/free-regular-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@tailwindcss/vite": "^4.1.17",
+    "astro": "^5.15.8",
+    "tailwindcss": "^4.1.17",
+    "theme-change": "^2.5.0"
+  },
+  "devDependencies": {
+    "daisyui": "^5.5.5"
+  }
+}

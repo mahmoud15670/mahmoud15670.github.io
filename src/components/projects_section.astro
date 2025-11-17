@@ -1,0 +1,73 @@
+---
+
+const commerceImages = import.meta.glob('../assets/images/commerce/*', {
+  eager: true,
+});
+const pythonImages = import.meta.glob('../assets/images/python/*', {
+  eager: true,
+});
+const eyadaImages = import.meta.glob('../assets/images/eyada/*', {
+  eager: true,
+});
+
+
+
+---
+
+<div class="hero bg-neutral/70 min-h-screen flex flex-col justify-evenly" id="my_work">
+    <h3 class="text-3xl font-bold text-secondary">Projects</h3>
+    <div class="grid grid-cols-3  gap-5">
+        <div class="card card-sm bg-base-200 max-w-60 rounded-lg shadow-lg" id="e_commerce">
+            <figure class="hover-gallery max-h-30">
+                {Object.values(commerceImages).map((img) => {
+                    const src = (img as any).default; 
+                    return <img src={src['src']} alt="Commerce Project Image" />;
+                })}
+            </figure>
+            <div class="card-body bg-base-100">
+                <h2 class="card-title flex justify-between">
+                Product Betting Arena
+                </h2>
+                <p>
+                    A competitive betting platform where users place increasing bids on a product, 
+                    and the user with the highest bet wins the item when the round ends.
+                </p>
+            </div>
+        </div>
+        <div class="card card-sm bg-base-200 max-w-60 rounded-lg shadow-lg" id="python">
+            <figure class="hover-gallery max-h-30">
+                {Object.values(pythonImages).map((img) => {
+                    const src = (img as any).default; 
+                    return <img src={src['src']} alt="python Project Image" />;
+                })}
+            </figure>
+            <div class="card-body bg-base-100">
+                <h2 class="card-title flex justify-between">
+                Tic-Tac-Toe Game
+                </h2>
+                <p>
+                    A classic Tic-Tac-Toe game built with Python, featuring a clean command-line interface, 
+                    intelligent game logic, and two-player mode for fun and challenging gameplay.
+                </p>
+            </div>
+        </div>
+        <div class="card card-sm bg-base-200 max-w-60 shadow-lg" id="django">
+            <figure class="hover-gallery max-h-30">
+                {Object.values(eyadaImages).map((img) => {
+                    const src = (img as any).default; 
+                    return <img src={src['src']} alt="python Project Image" />;
+                })}
+            </figure>
+            <div class="card-body bg-base-100">
+                <h2 class="card-title flex justify-between">
+                Medical Clinic Management System
+                </h2>
+                <p>
+                    A complete medical clinic management system designed to streamline daily clinical operations, including 
+                    patient management, diagnostics, treatments, user roles, and automated patient calling. 
+                    Built to provide an efficient, secure, and organized workflow for doctors, receptionists, and staff.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

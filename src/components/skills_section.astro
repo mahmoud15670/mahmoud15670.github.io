@@ -1,0 +1,29 @@
+---
+const SkillImages = import.meta.glob('../assets/images/skills/*', {
+  eager: true,
+});
+
+---
+
+<div class="hero bg-neutral/70 min-h-screen flex flex-col justify-evenly" id="skills">
+    <h3 class="text-3xl font-bold text-secondary">Skills</h3>
+    <div class="grid grid-cols-4 gap-6">
+        {Object.values(SkillImages).map((img) => {
+        const src = (img as any).default; 
+        return <label class="swap swap-rotate hover:swap-active text-2xl font-bold object-center text-center">
+                <div class="max-w-24 max-h-24 rounded-full swap-off">
+                
+                 <img src={src['src']} alt="Skill Image"  />
+                  
+                </div>
+                <div class="bg-secondary text-secondary-content flex flex-col justify-evenly  max-w-24 max-h-24 rounded-full swap-on ">
+                   
+                        <p>{src['src'].toString().split('/').pop().split('_').pop().split('.')[0]} </p>
+                
+                </div>
+            </label>;
+        })}
+        
+    </div>
+    
+</div>

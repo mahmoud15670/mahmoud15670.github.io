@@ -1,0 +1,43 @@
+---
+const CertificatesImages = import.meta.glob('../assets/images/certificates/*', {
+  eager: true,
+});
+
+---
+<div class="hero bg-neutral/70 min-h-screen flex flex-col justify-evenly" id="certificates">
+    <h3 class="text-3xl font-bold text-secondary">Certificates</h3>
+<div class="grid grid-cols-3 p-3  gap-5 justify-evenly">
+  {Object.values(CertificatesImages).map((img) =>{
+    const src = (img as any).default;
+    return <div class="card bg-base-100  shadow-lg max-h-106">
+        <figure class="max-h-60">
+          <img src={src['src']} alt="certificate image" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">{src['src'].toString().split('/').pop().split('_').pop().split('.')[0]} certificate</h2>
+          {src['src'].toString().includes('CS50x') ?
+            <p>An in-depth computer science program covering algorithms, data structures, C programming, memory management, problem-solving, and software engineering practices. 
+              Completed all problem sets, labs, and the final capstone project, gaining strong foundational CS knowledge.
+            </p> :
+            src['src'].toString().includes('CS50P') ?
+            <p>
+              A comprehensive Python programming course focused on real-world applications, clean code, debugging, functions, OOP, unit testing, file I/O, and problem-solving. 
+              Completed nine structured problem sets and a final project demonstrating practical Python development skills.
+            </p>
+          :
+            src['src'].toString().includes('mongo') ?
+            <p>
+              An introductory course in MongoDB, covering database concepts, CRUD operations, collections, documents, indexing, and working with NoSQL data models. 
+              Gained practical knowledge using MongoDB tools and shell commands, preparing for backend and full-stack development workflows.
+            </p>
+          :
+            <p>ِA foundational course covering the core concepts and principles of database management. This certification signifies a solid understanding of fundamental database 
+              structures, terminologies, and design concepts necessary for further specialization in data management and development.</p>
+          }
+          
+        </div>
+      </div>
+  })}
+  
+</div>
+</div>

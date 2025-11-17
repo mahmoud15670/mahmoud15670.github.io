@@ -1,0 +1,73 @@
+---
+import { faYoutube, faLinkedinIn, faGithubAlt } from "@fortawesome/free-brands-svg-icons";
+import { faPhone, faAt, faLocationDot} from "@fortawesome/free-solid-svg-icons";
+import { icon } from "@fortawesome/fontawesome-svg-core";
+---
+<div class="hero bg-neutral/70 min-h-screen flex flex-col justify-evenly p-3" id="contact_me">
+    <h3 class="text-3xl font-bold text-secondary">Contact Me</h3>
+<div class="hero ">
+  <div class="hero-content flex-col lg:flex-row">
+    <div class="text-center bg-base-100 p-6 rounded-lg shadow-lg lg:text-left">
+      <h1 class="text-5xl font-bold">Let's Talk for Your Next Projects</h1>
+      <p class="py-6">
+        Feel free to reach out if you have any questions or just want to say hi!
+      </p>
+    </div>
+    <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div class="card-body">
+        <ul class="list bg-base-100 rounded-box shadow-md">
+  
+  <li class="p-4 pb-2 text-xs opacity-60 tracking-wide">Contact</li>
+  
+  <li class="list-row">
+    <div set:html={icon(faAt).html[0]} class="w-6 h-6 text-secondary"></div>
+    <div>
+      <div >Email</div>
+      <div class="text-xs uppercase font-semibold opacity-60">mahmoud.ghalab15@gmail.com</div>
+    </div>
+    
+  </li>
+  
+  <li class="list-row">
+    <a href="https://www.linkedin.com/in/mahmoud-ghallab-0a309b154?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" set:html={icon(faLinkedinIn).html[0]} class="w-6 h-6 text-secondary"></a>
+    <div>
+      <div>Linkedin</div>
+      <div class="text-xs uppercase font-semibold opacity-60">Mahmoud Ghallab</div>
+    </div>
+    
+  </li>
+  <li class="list-row">
+    <a href="https://github.com/mahmoud15670" set:html={icon(faGithubAlt).html[0]} class="w-6 h-6 text-secondary"></a>
+    <div>
+      <div>Github</div>
+      <div class="text-xs uppercase font-semibold opacity-60">mahmoud15670</div>
+    </div>
+    
+  </li>
+  
+  <li class="list-row">
+    <div set:html={icon(faPhone).html[0]} class="w-6 h-6 text-secondary"></div>
+    <div>
+      <div>Phone</div>
+      <div class="text-xs uppercase font-semibold opacity-60">+20 1064960127</div>
+    </div>
+    
+  </li>
+  
+ 
+  <li class="list-row">
+    <div set:html={icon(faLocationDot).html[0]} class="w-6 h-6 text-secondary"></div>
+    <div>
+      <div>Address</div>
+      <div class="text-xs uppercase font-semibold opacity-60">kom hamada, alBeheira, egypt</div>
+    </div>
+    
+    
+  </li>
+  
+</ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

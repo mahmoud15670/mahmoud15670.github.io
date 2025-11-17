@@ -1,0 +1,57 @@
+---
+import ThemeController from "./theme_controller.astro";
+import Logo from '../assets/images/logo.jpg';
+---
+<div id="hover-zone" class="fixed top-0 left-0 right-0 h-5 z-40"></div>
+
+<div class="navbar bg-base-100 shadow-sm fixed top-0 z-50 transition-transform duration-300 -translate-y-full text-primary" id="navbar">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+      </div>
+      <ul
+        id="navDrob1"
+        tabindex="-1"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li><a href="#my_work" >Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li>
+          <a>About Me</a>
+          <ul class="p-2">
+            <li><a href="#about_me">About Me</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+          </ul>
+        </li>
+        <li><a href="#contact_me">Contact Me</a></li>
+      </ul>
+    </div>
+    <a href="/" tabindex="0" role="button" class="btn btn-ghost btn-circle avatar w-fit">
+    <div class="w-10 rounded-full">
+        <img alt="logo image" src={Logo.src} />
+    </div>
+    <div class="text-xl contents">
+        MGh
+    </div>  
+    </a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal  px-1">
+      <li><a href="#my_work" >Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li>
+        <details>
+          <summary>About Me</summary>
+          <ul class="p-2" id="navDrob">
+            <li><a href="#about_me">About Me</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="#contact_me">Contact Me</a></li>
+    </ul>
+  </div>
+  <div class="navbar-end">
+    <ThemeController />
+  </div>
+</div>
