@@ -1,67 +1,154 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>العد التنازلي</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: white;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown 17/7/2026</title>
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
+<style>
+:root {
+  --bg: linear-gradient(135deg,#1e3c72,#2a5298);
+  --card-bg: rgba(255,255,255,0.1);
+  --text: white;
+}
 
-    #countdown {
-      font-size: 35px;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 20px 40px;
-      border-radius: 15px;
-    }
-  </style>
+body.light {
+  --bg: linear-gradient(135deg,#f5f7fa,#c3cfe2);
+  --card-bg: rgba(0,0,0,0.08);
+  --text: #222;
+}
+
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  transition: 0.4s;
+  text-align:center;
+}
+
+h1 {
+  margin-bottom:30px;
+  font-size: clamp(22px,4vw,40px);
+}
+
+.countdown {
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  min-width:90px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  transition:0.3s;
+}
+
+.card span {
+  display:block;
+  font-size: clamp(25px,5vw,40px);
+  font-weight:bold;
+}
+
+.label {
+  font-size:14px;
+  opacity:0.8;
+}
+
+button {
+  margin-top:30px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.finished {
+  font-size:35px;
+  animation: pop 1s ease infinite alternate;
+}
+
+@keyframes pop {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+</style>
 </head>
+
 <body>
 
-  <h1>الوقت المتبقي حتى 17 / 7 / 2026</h1>
-  <div id="countdown"></div>
+<h1>الوقت المتبقي حتى 17 / 7 / 2026</h1>
 
-  <script>
-    // تاريخ الهدف
-    const targetDate = new Date("July 17, 2026 00:00:00").getTime();
+<div class="countdown" id="countdown">
+  <div class="card"><span id="days">0</span><div class="label">يوم</div></div>
+  <div class="card"><span id="hours">0</span><div class="label">ساعة</div></div>
+  <div class="card"><span id="minutes">0</span><div class="label">دقيقة</div></div>
+  <div class="card"><span id="seconds">0</span><div class="label">ثانية</div></div>
+</div>
 
-    const countdown = setInterval(function () {
+<button onclick="toggleMode()">🌙 / ☀ تبديل الوضع</button>
 
-      const now = new Date().getTime();
-      const difference = targetDate - now;
+<audio id="alarm">
+  <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg">
+</audio>
 
-      if (difference <= 0) {
-        clearInterval(countdown);
-        document.getElementById("countdown").innerHTML = "🎉 لقد حان اليوم!";
-        return;
-      }
+<script>
+const targetDate = new Date("July 17, 2026 00:00:00").getTime();
+const alarm = document.getElementById("alarm");
 
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+const interval = setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
 
-      document.getElementById("countdown").innerHTML =
-        days + " يوم " +
-        hours + " ساعة " +
-        minutes + " دقيقة " +
-        seconds + " ثانية ";
+  if (diff <= 0) {
+    clearInterval(interval);
+    document.getElementById("countdown").innerHTML =
+      "<div class='finished'>🎉 لقد حان اليوم! 🎉</div>";
+    alarm.play();
+    return;
+  }
 
-    }, 1000);
-  </script>
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const seconds = Math.floor((diff % (1000*60)) / 1000);
+
+  animateValue("days", days);
+  animateValue("hours", hours);
+  animateValue("minutes", minutes);
+  animateValue("seconds", seconds);
+
+}, 1000);
+
+function toggleMode(){
+  document.body.classList.toggle("light");
+}
+
+function animateValue(id, newValue){
+  const el = document.getElementById(id);
+  if(el.textContent != newValue){
+    el.style.transform="scale(1.2)";
+    el.textContent = newValue;
+    setTimeout(()=> el.style.transform="scale(1)",200);
+  }
+}
+</script>
 
 </body>
 </html>
