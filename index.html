@@ -66,17 +66,12 @@ h1 {
 }
 
 button {
-  margin-top:30px;
-  padding:10px 20px;
+  margin-top:15px;
+  padding:8px 18px;
   border:none;
   border-radius:20px;
   cursor:pointer;
   font-weight:bold;
-  transition:0.3s;
-}
-
-button:hover {
-  transform: scale(1.05);
 }
 
 .finished {
@@ -103,10 +98,80 @@ button:hover {
 </div>
 
 <button onclick="toggleMode()">🌙 / ☀ تبديل الوضع</button>
+<button onclick="toggleTick()">🔊 تشغيل/إيقاف صوت الثواني</button>
 
-<audio id="alarm">
-  <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg">
-</audio>
+<script>
+const targetDate = new Date("July 17, 2026 00:00:00").getTime();
+
+let tickEnabled = true;
+let audioContext;
+
+// إنشاء صوت Tick
+function playTick(){
+  if(!tickEnabled) return;
+  if(!audioContext){
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  }
+
+  const oscillator = audioContext.createOscillator();
+  const gainNode = audioContext.createGain();
+
+  oscillator.type = "square";
+  oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+  gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+
+  oscillator.connect(gainNode);
+  gainNode.connect(audioContext.destination);
+
+  oscillator.start();
+  oscillator.stop(audioContext.currentTime + 0.05);
+}
+
+const interval = setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+
+  if (diff <= 0) {
+    clearInterval(interval);
+    document.getElementById("countdown").innerHTML =
+      "<div class='finished'>🎉 لقد حان اليوم! 🎉</div>";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const seconds = Math.floor((diff % (1000*60)) / 1000);
+
+  animateValue("days", days);
+  animateValue("hours", hours);
+  animateValue("minutes", minutes);
+  animateValue("seconds", seconds);
+
+  playTick(); // 🔥 صوت كل ثانية
+
+}, 1000);
+
+function toggleMode(){
+  document.body.classList.toggle("light");
+}
+
+function toggleTick(){
+  tickEnabled = !tickEnabled;
+}
+
+function animateValue(id, newValue){
+  const el = document.getElementById(id);
+  if(el.textContent != newValue){
+    el.style.transform="scale(1.2)";
+    el.textContent = newValue;
+    setTimeout(()=> el.style.transform="scale(1)",200);
+  }
+}
+</script>
+
+</body>
+</html></audio>
 
 <script>
 const targetDate = new Date("July 17, 2026 00:00:00").getTime();
