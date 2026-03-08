@@ -1,7 +1,33 @@
 const targetDate = new Date("July 16, 2026 00:00:00").getTime();
+const detectDarkMode = () =>
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+function applyInitialMode() {
+  const saved = localStorage.getItem("mode");
+  if (saved === "light") {
+    document.body.classList.add("light");
+  } else if (saved === "dark") {
+    document.body.classList.remove("light");
+  } else {
+    if (!detectDarkMode()) {
+      document.body.classList.add("light");
+    }
+  }
+}
+
+applyInitialMode();
+localStorage.setItem(
+  "mode",
+  document.body.classList.contains("light") ? "light" : "dark",
+);
 
 function toggleMode() {
   document.body.classList.toggle("light");
+  localStorage.setItem(
+    "mode",
+    document.body.classList.contains("light") ? "light" : "dark",
+  );
 }
 
 function animateValue(id, newValue) {
