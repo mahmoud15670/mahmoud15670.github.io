@@ -1,0 +1,118 @@
+:root {
+  --bg: url("assets/darkBG.jpeg");
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --text: rgba(196, 171, 104, 0.9);
+  --btn-bg: rgba(196, 171, 104, 0.9);
+  --btn-text: rgba(6, 39, 44, 0.8);
+  --logo-color: rgba(196, 171, 104, 0.9);
+}
+
+body.light {
+  --bg: url("assets/lightBG.jpeg");
+  --card-bg: rgba(0, 0, 0, 0.08);
+  --text: #222;
+  --btn-bg: #222;
+  --btn-text: #f2ede7;
+  --logo-color: #222;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: var(--text);
+
+  height: 100vh;
+  transition: 0.4s;
+  text-align: center;
+
+  /* make container relative for absolutely positioned children */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.countdown {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  /* force container to sit at bottom */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center; /* cards centered horizontally */
+  align-items: center;
+  align-content: center;
+  padding-bottom: 20px; /* spacing from bottom edge */
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  border-radius: 20px;
+  min-width: 90px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.card span {
+  display: block;
+  font-size: clamp(25px, 5vw, 40px);
+  font-weight: bold;
+}
+
+.label {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+button {
+  /* move button to top right */
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+body.light .icon.sun {
+  display: none;
+}
+
+body:not(.light) .icon.moon {
+  display: none;
+}
+
+.finished {
+  font-size: 35px;
+  animation: pop 1s ease infinite alternate;
+}
+.logo {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+}
+.logo path {
+  fill: var(--logo-color);
+}
+@keyframes pop {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
