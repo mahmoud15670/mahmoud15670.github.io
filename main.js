@@ -1,4 +1,4 @@
-const targetDate = new Date("July 15, 2026 00:00:00").getTime();
+const targetDate = new Date("July 15, 2026 19:00:00").getTime();
 const detectDarkMode = () =>
   window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: dark)").matches;
