@@ -62,16 +62,87 @@ function openAnimation() {
 }
 
 // إنشاء فراشات بشكل عشوائي
+const images = [
+  "/assets/butterflies.png",
+  "/assets/butterfly.png",
+  "/assets/butterfly2.png",
+  "/assets/butterfly3.png",
+  "/assets/butterfly4.png",
+];
 const container = document.getElementById("butterflies");
 const butterflyCount = 10;
 
 for (let i = 0; i < butterflyCount; i++) {
+  const randomImage = images[Math.floor(Math.random() * images.length)];
   const b = document.createElement("div");
   b.className = "butterfly";
-  b.style.left = Math.random() * 100 + "%";
-  b.style.animationDelay = Math.random() * 5 + "s";
-  b.style.animationDuration = Math.random() * 4 + 6 + "s";
 
+  // 1. مكان البدء الأفقي (من 0 لـ 100% من عرض الشاشة)
+  b.style.left = Math.random() * 100 + "vw";
+
+  // 2. مقدار الانحراف الأفقي وهي طالعة (عشان متطلعش في خط مستقيم ممل)
+  // ده بيخليها تروح يمين أو شمال بمقدار عشوائي
+  const drift = (Math.random() - 0.5) * 400 + "px";
+  b.style.setProperty("--drift-x", drift);
+
+  // 3. زاوية دوران عشوائية عند النهاية
+  const rotation = Math.random() * 360 + "deg";
+  b.style.setProperty("--rotation", rotation);
+
+  // 4. سرعة وتأخير عشوائي
+  b.style.animationDuration = Math.random() * 5 + 5 + "s";
+  b.style.animationDelay = Math.random() * 10 + "s";
+
+  b.style.backgroundImage = `url(${randomImage})`;
   b.innerHTML = "<span></span><span></span>";
   container.appendChild(b);
 }
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAQtTg_-W4owJWydSrshsseT1BQR6RKPiE",
+  authDomain: "mynotes-mgh.firebaseapp.com",
+  databaseURL: "https://mynotes-mgh-default-rtdb.firebaseio.com",
+  projectId: "mynotes-mgh",
+  storageBucket: "mynotes-mgh.firebasestorage.app",
+  messagingSenderId: "422166703812",
+  appId: "1:422166703812:web:016a7cda14491d2eafa391",
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
+const messageForm = document.getElementById("message-form");
+
+messageForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const now = new Date();
+  const humanReadableTime = now.toLocaleString("ar-EG");
+
+  // Generate a unique key for the new message
+  const messagesRef = database.ref("messages");
+  const newMessageRef = messagesRef.push();
+
+  if (name && message) {
+    newMessageRef
+      .set({
+        name: name,
+        message: message,
+        timestamp: Date.now(), // Good practice to add a timestamp
+        humanReadableTime: humanReadableTime, // Add the human-readable time
+      })
+      .then(function () {
+        alert("تم حفظ البيانات بنجاح!");
+        messageForm.reset();
+      })
+      .catch(function (error) {
+        console.error("Firebase Error:", error);
+        alert("حدث خطأ: " + error.message);
+      });
+  } else {
+    alert("يرجى ملء جميع الحقول قبل الإرسال.");
+  }
+});
