@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>الليه الكبيره</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playpen Sans Arabic&family=Tangerine&family=Amiri&family=Reem+Kufi&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -194,6 +194,13 @@
       </section>
 
       <section class="countdown-section">
+        <p class="section-heading">Until The Big Day</p>
+        <p class="section-description">
+          الوقت يمر بسرعة، وموعدنا يقترب! لا تنسوا أن تجهزوا أنفسكم لهذا اليوم
+          المميز. نحن متحمسون لرؤيتكم جميعًا هناك ومشاركة هذه اللحظات السعيدة
+          معكم. في انتظاركم بفارغ الصبر . 🥳
+        </p>
+
         <div class="countdown" id="countdown">
           <div class="card">
             <span id="seconds">0</span>
@@ -215,6 +222,63 @@
           </div>
         </div>
       </section>
-    </div>
+      <section class="gallery-section">
+        <p class="section-heading">Our Journey Together</p>
+        <p class="section-description">
+          رحلة حبنا مليئة بالذكريات الجميلة واللحظات السعيدة. في هذا القسم، نشارككم
+          بعض الصور التي تروي قصة حبنا وتوثق أجمل اللحظات التي قضيناها معًا. نتمنى
+          أن تستمتعوا بمشاهدة هذه الصور بقدر ما استمتعنا بالتقاطها!
+        </p>
+        <div class="gallery">
+          <img src="images/photo1.jpg" alt="Photo 1" />
+          <img src="images/photo2.jpg" alt="Photo 2" />
+          <img src="images/photo3.jpg" alt="Photo 3" />
+          <img src="images/photo4.jpg" alt="Photo 4" />
+          <img src="images/photo5.jpg" alt="Photo 5" />
+          <img src="images/photo6.jpg" alt="Photo 6" />
+        </div>
+      </section>
+      <section class="location-section">
+        <p class="section-heading">Venue Location</p>
+        <p class="section-description">
+          حفل زفافنا سيقام في المحروسة، وهو مكان مميز يحمل في طياته الكثير من
+          الذكريات الجميلة. نحن متحمسون لاستقبالكم هناك ومشاركة هذه اللحظات السعيدة
+          معكم. لا تنسوا أن تجهزوا أنفسكم لهذا اليوم المميز!
+        </p>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.1234567890123!2d31.2357123456789!3d30.0444123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c1234567890%3A0xabcdef1234567890!2sAl%20Mahrusa%20Venue!5e0!3m2!1sen!2seg!4v1234567890123"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      <section class="message-section">
+        <p class="section-heading">Leave Us A Message</p>
+        <p class="section-description">
+          نود أن نسمع منكم! شاركونا بأطيب التمنيات، الذكريات الجميلة، أو حتى
+          نصائحكم للحياة الزوجية. كل رسالة منكم تعني لنا الكثير، ونحن متحمسون
+          لقراءتها ومشاركتها معنا في هذا اليوم الخاص.
+        </p>
+        <form id="message-form" class="message-form">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="اسمك"
+            required
+          />
+          <textarea
+            id="message"
+            name="message"
+            placeholder="رسالتك لنا..."
+            required
+          ></textarea>
+          <button type="submit">إرسال</button>
+        </form>
+        </section>  
+      </div>
   </body>
 </html>

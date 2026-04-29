@@ -1,34 +1,4 @@
 const targetDate = new Date("July 15, 2026 19:00:00").getTime();
-const detectDarkMode = () =>
-  window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-function applyInitialMode() {
-  const saved = localStorage.getItem("mode");
-  if (saved === "light") {
-    document.body.classList.add("light");
-  } else if (saved === "dark") {
-    document.body.classList.remove("light");
-  } else {
-    if (!detectDarkMode()) {
-      document.body.classList.add("light");
-    }
-  }
-}
-
-applyInitialMode();
-localStorage.setItem(
-  "mode",
-  document.body.classList.contains("light") ? "light" : "dark",
-);
-
-function toggleMode() {
-  document.body.classList.toggle("light");
-  localStorage.setItem(
-    "mode",
-    document.body.classList.contains("light") ? "light" : "dark",
-  );
-}
 
 function animateValue(id, newValue) {
   const el = document.getElementById(id);
@@ -93,7 +63,7 @@ function openAnimation() {
 
 // إنشاء فراشات بشكل عشوائي
 const container = document.getElementById("butterflies");
-const butterflyCount = 8;
+const butterflyCount = 10;
 
 for (let i = 0; i < butterflyCount; i++) {
   const b = document.createElement("div");

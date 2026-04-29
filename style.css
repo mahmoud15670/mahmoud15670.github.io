@@ -79,13 +79,8 @@ body {
 }
 .countdown {
   display: flex;
-  gap: 15px;
+  gap: 55px;
   flex-wrap: wrap;
-  /* force container to sit at bottom */
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
   justify-content: center; /* cards centered horizontally */
   align-items: center;
   align-content: center;
@@ -98,8 +93,9 @@ body {
   padding: 15px;
   border-radius: 20px;
   min-width: 90px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px #d2e3b9;
   transition: 0.3s;
+  text-align: center;
 }
 
 .card span {
@@ -243,13 +239,35 @@ body {
     left: 10%;
   }
 }
-.invitation-section,
-.countdown-section {
+.invitation-section {
   width: 100%;
-  height: 100vh; /* طول الشاشة بالكامل */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  box-sizing: border-box;
+}
+.countdown-section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding: 20px;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.section-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 4px 4px 4px #aaa;
+  font-family: "Tangerine", cursive;
+  color: #818c6a;
+}
+.section-description {
+  font-size: 1.2rem;
+  max-width: 600px;
+  text-align: center;
+  color: #333;
+  font-family: "Playpen Sans Arabic", sans-serif;
 }
