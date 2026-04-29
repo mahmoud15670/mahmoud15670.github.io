@@ -1,41 +1,82 @@
-:root {
-  --bg: url("assets/darkBG.jpeg");
-  --card-bg: rgba(255, 255, 255, 0.1);
-  --text: rgba(196, 171, 104, 0.9);
-  --btn-bg: rgba(196, 171, 104, 0.9);
-  --btn-text: rgba(6, 39, 44, 0.8);
-  --logo-color: rgba(196, 171, 104, 0.9);
-}
-
-body.light {
-  --bg: url("assets/lightBG.jpeg");
-  --card-bg: rgba(0, 0, 0, 0.08);
-  --text: #222;
-  --btn-bg: #222;
-  --btn-text: #f2ede7;
-  --logo-color: #222;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background-image: var(--bg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-
-  color: var(--text);
-
-  height: 100vh;
-  transition: 0.4s;
-  text-align: center;
-
-  /* make container relative for absolutely positioned children */
-  position: relative;
+  background-color: #f6eee9; /* لون الخلفية اللي في الفيديو */
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
+#envelope-wrapper {
+  position: relative;
+  width: 320px; /* نفس حجم الموبايل تقريباً */
+  cursor: pointer;
+  transition:
+    transform 1.2s cubic-bezier(0.7, 0, 0.3, 1),
+    opacity 0.8s;
+  z-index: 10;
+}
+
+.envelope-img {
+  width: 100%;
+  display: block;
+}
+
+.seal-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px; /* حجم الختم الذهبي */
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.text-hint {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #8c7e74;
+}
+
+/* حركة الزووم "كأنك دخلت جوه الورقة" */
+.zoom-effect {
+  transform: scale(15); /* تكبير ضخم جداً */
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* إظهار الصفحة الجديدة */
+#main-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fdf2f0;
+  display: block;
+  opacity: 0;
+  transition: opacity 1s;
+  overflow-x: hidden;
+}
+
+.show-page {
+  opacity: 1 !important;
+}
+
+.hidden {
+  display: none;
+}
 .countdown {
   display: flex;
   gap: 15px;
@@ -72,28 +113,6 @@ body {
   opacity: 0.8;
 }
 
-button {
-  /* move button to top right */
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 8px 18px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  background-color: var(--btn-bg);
-  color: var(--btn-text);
-}
-
-body.light .icon.sun {
-  display: none;
-}
-
-body:not(.light) .icon.moon {
-  display: none;
-}
-
 .finished {
   font-size: 35px;
   animation: pop 1s ease infinite alternate;
@@ -118,4 +137,119 @@ body:not(.light) .icon.moon {
   to {
     transform: scale(1.1);
   }
+}
+
+.invitation-container {
+  position: relative;
+  width: 100%; /* حجم مناسب للموبايل */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 10;
+}
+
+/* صورة إطار الورد الدائري خلف النص */
+.floral-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/WhatsApp\ Image\ 2026-04-29\ at\ 3.21.03\ PM\ \(3\).png"); /* إطار ورد شفاف */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+}
+
+/* حاوية النص داخل الإطار */
+.text-content {
+  position: relative;
+  text-align: center;
+  color: #fdf2f0;
+  z-index: 2;
+  padding: 20px;
+}
+
+.names {
+  font-size: 2.2rem;
+  color: #fdf2f0;
+  margin: 15px 0;
+}
+.date {
+  font-size: 1.5rem;
+  color: #fdf2f0;
+  font-weight: bold;
+}
+.scroll-down {
+  display: none;
+}
+.scroll-down-msg {
+  display: block;
+  font-size: x-large;
+  animation: pop 1s ease infinite alternate;
+}
+/* حاوية الفراشات المتحركة */
+.butterfly-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 11;
+}
+
+/* تصميم الفراشة الواقعية المتحركة */
+.butterfly {
+  position: absolute;
+  width: 40px; /* حجم الفراشة */
+  height: 40px;
+  background-image: url("/assets/butterflies.png"); /* صورة فراشة واقعية شفافة */
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: fly 8s infinite linear;
+  opacity: 0.9;
+}
+
+/* حركة الطيران السحرية عشوائياً */
+@keyframes fly {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    top: 110%;
+    left: 10%;
+  }
+  20% {
+    transform: translate(60px, -180px) rotate(30deg);
+    left: 30%;
+  }
+  40% {
+    transform: translate(-40px, -360px) rotate(-15deg);
+    left: 70%;
+  }
+  60% {
+    transform: translate(80px, -540px) rotate(20deg);
+    left: 20%;
+  }
+  80% {
+    transform: translate(0, -720px) rotate(-5deg);
+    left: 50%;
+  }
+  100% {
+    transform: translate(20px, -900px) rotate(0deg);
+    top: -10%;
+    left: 10%;
+  }
+}
+.invitation-section,
+.countdown-section {
+  width: 100%;
+  height: 100vh; /* طول الشاشة بالكامل */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
 }

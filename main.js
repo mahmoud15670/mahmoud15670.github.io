@@ -63,3 +63,45 @@ const interval = setInterval(() => {
   animateValue("minutes", minutes);
   animateValue("seconds", seconds);
 }, 1000);
+
+function openAnimation() {
+  const wrapper = document.getElementById("envelope-wrapper");
+  const mainPage = document.getElementById("main-page");
+  const audio = document.getElementById("myAudio");
+  const scroll = document.getElementById("scroll-down");
+
+  // 1. تشغيل حركة التكبير
+  wrapper.classList.add("zoom-effect");
+  audio.play();
+
+  // 2. إظهار المحتوى الجديد بعد ما الزووم يغطي الشاشة
+  setTimeout(() => {
+    wrapper.style.display = "none";
+    mainPage.classList.remove("hidden");
+
+    // إضافة Delay بسيط عشان الـ Fade in يكون ناعم
+    setTimeout(() => {
+      mainPage.classList.add("show-page");
+    }, 50);
+    setTimeout(function () {
+      audio.pause();
+      audio.currentTime = 0;
+      scroll.classList.add("scroll-down-msg");
+    }, 17000);
+  }, 1000); // الوقت ده لازم يكون متوافق مع وقت الـ CSS transition
+}
+
+// إنشاء فراشات بشكل عشوائي
+const container = document.getElementById("butterflies");
+const butterflyCount = 8;
+
+for (let i = 0; i < butterflyCount; i++) {
+  const b = document.createElement("div");
+  b.className = "butterfly";
+  b.style.left = Math.random() * 100 + "%";
+  b.style.animationDelay = Math.random() * 5 + "s";
+  b.style.animationDuration = Math.random() * 4 + 6 + "s";
+
+  b.innerHTML = "<span></span><span></span>";
+  container.appendChild(b);
+}
