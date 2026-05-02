@@ -238,8 +238,10 @@ body {
   position: relative;
 }
 .invitation-icon {
+  pointer-events: auto;
+
   width: 50px;
-  z-index: 12;
+  z-index: 10;
   max-height: 50px;
 }
 .countdown-section {
