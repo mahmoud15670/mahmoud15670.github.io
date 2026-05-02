@@ -142,8 +142,10 @@ body {
   width: 100%; /* حجم مناسب للموبايل */
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  gap: 20%;
 
   z-index: 10;
 }
@@ -232,8 +234,13 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   position: relative;
+}
+.invitation-icon {
+  width: 50px;
+  z-index: 12;
+  max-height: 50px;
 }
 .countdown-section {
   width: 100%;
@@ -326,4 +333,20 @@ form button {
 }
 form button:hover {
   background-color: #6b7a56;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+footer a {
+  color: #818c6a;
+  text-decoration: none;
+  font-weight: bold;
+}
+.sub-text {
+  font-size: 1rem;
+  color: #666;
 }
