@@ -160,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "/assets/icons/8.png",
     "/assets/icons/9.png",
     "/assets/icons/10.png",
+    "/assets/icons/10.png",
   ];
 
   let currentIndex = 0;
