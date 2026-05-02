@@ -146,3 +146,27 @@ messageForm.addEventListener("submit", function (e) {
     alert("يرجى ملء جميع الحقول قبل الإرسال.");
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // ضع هنا مسارات الصور الخاصة بك
+  const frames = [
+    "/assets/icons/1.png",
+    "/assets/icons/2.png",
+    "/assets/icons/3.png",
+    "/assets/icons/4.png",
+    "/assets/icons/5.png",
+    "/assets/icons/6.png",
+    "/assets/icons/7.png",
+    "/assets/icons/8.png",
+    "/assets/icons/9.png",
+    "/assets/icons/10.png",
+  ];
+
+  let currentIndex = 0;
+  const favicon = document.getElementById("dynamic-favicon");
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % frames.length;
+    favicon.href = frames[currentIndex];
+  }, 200);
+});
