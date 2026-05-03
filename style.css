@@ -13,6 +13,9 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+.messages-link {
+  z-index: 12;
+}
 
 #envelope-wrapper {
   position: relative;

@@ -135,7 +135,7 @@ messageForm.addEventListener("submit", function (e) {
         humanReadableTime: humanReadableTime, // Add the human-readable time
       })
       .then(function () {
-        alert("تم حفظ البيانات بنجاح!");
+        alert("عقبال عندكم رسالتك وصلت🥰");
         messageForm.reset();
       })
       .catch(function (error) {
